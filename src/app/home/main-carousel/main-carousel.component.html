@@ -1,0 +1,13 @@
+<div class="carousel-container overflow-x-hidden relative">
+  <div class="flex justify-between absolute w-full items-center h-full z-10 top-0 px-6">
+    <span class="cursor-pointer text-3xl bg-slate-800 p-3 text-white w-[60px] text-center rounded-full" (click)="nextSlide()">&laquo;</span>
+    <span class="cursor-pointer text-3xl bg-slate-800 p-3 text-white w-[60px] text-center rounded-full" (click)="prevSlide()">&raquo;</span>
+  </div>
+  <div class="carousel" [style.transform]="'translateX(-'+(currentSlide*100)+'%)'">
+    <ng-container class="carousel-item" *ngFor="let item of carouselData; let i = index">
+      <a [routerLink]="item.path" class="carousel-item">
+        <img [src]="item.image" alt="Carousel image">
+      </a>
+    </ng-container>      
+  </div>
+</div>
